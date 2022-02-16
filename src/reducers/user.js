@@ -1,5 +1,3 @@
-// Esse reducer será responsável por tratar as informações da pessoa usuária
-
 import { USER_LOGIN } from '../actions/actionTypes';
 
 const INITIAL_STATE = {
@@ -12,6 +10,7 @@ const user = (state = INITIAL_STATE, { type, payload }) => {
     return {
       ...state,
       email: payload,
+
     };
   default:
     return state;

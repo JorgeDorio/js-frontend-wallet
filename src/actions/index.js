@@ -1,5 +1,3 @@
-// Coloque aqui suas actions
-
 import { GET_WALLET_CURRENCIES, GET_WALLET_EXPENSES, USER_LOGIN } from './actionTypes';
 
 export const getLogin = (email) => ({
