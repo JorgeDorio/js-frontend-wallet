@@ -44,12 +44,12 @@ class Login extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    const { getEmail } = this.props;
+    const { saveEmailProp } = this.props;
     const { email } = this.state;
     this.setState({
       isRedirect: true,
     });
-    getEmail(email);
+    saveEmailProp(email);
   }
 
   render() {
@@ -84,11 +84,15 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  getEmail: PropTypes.func,
+  saveEmailProp: PropTypes.func,
 }.isRequired;
 
 const mapDispatchToProps = (dispatch) => ({
-  getEmail: (email) => dispatch(getLogin(email)),
+  saveEmailProp: (email) => dispatch(getLogin(email)),
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+const mapStateToProps = ({ email }) => ({
+  email,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
