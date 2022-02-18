@@ -1,37 +1,34 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Header.css';
 
 class Header extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      currentBalance: 0,
-    };
-  }
-
   render() {
-    console.log(this.props);
-    const { email } = this.props;
-    const { currentBalance } = this.state;
+    const { email, total } = this.props;
+    const currentEmail = email === '' ? 'Local do email' : email;
+    // const balance = total === 0 ? 0 : (total).toFixed(2);
     return (
-      <div>
-        <p data-testid="email-field">{email}</p>
-        <p data-testid="total-field">{currentBalance}</p>
-        <p data-testid="header-currency-field">BRL</p>
-      </div>
+      <header>
+        <p data-testid="email-field">{currentEmail}</p>
+        <div className="currentBalance">
+          <p data-testid="total-field">{Number(total).toFixed(2)}</p>
+          <p data-testid="header-currency-field">BRL</p>
+        </div>
+      </header>
     );
   }
 }
 
 Header.propTypes = {
-  email: PropTypes.any,
+  email: PropTypes.string,
+  total: PropTypes.number,
 }.isRequired;
 
 function mapStateToProps(state) {
   return {
     email: state.user.email,
+    total: state.wallet.total,
   };
 }
 

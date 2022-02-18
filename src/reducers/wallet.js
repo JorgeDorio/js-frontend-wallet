@@ -5,6 +5,7 @@ import { GET_WALLET_CURRENCIES, GET_WALLET_EXPENSES } from '../actions/actionTyp
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  total: 0,
 };
 
 const wallet = (state = INITIAL_STATE, { type, payload }) => {
@@ -15,10 +16,12 @@ const wallet = (state = INITIAL_STATE, { type, payload }) => {
       currencies: payload,
     };
   case GET_WALLET_EXPENSES:
-    return {
-      ...state,
-      expenses: payload,
-    };
+    return { ...state,
+      expenses: [...state.expenses,
+        payload],
+      total:
+      state.total + Number(payload.value)
+      * Number(payload.exchangeRates[payload.currency].ask) };
   default:
     return state;
   }
