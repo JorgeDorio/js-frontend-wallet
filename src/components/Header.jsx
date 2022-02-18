@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import './Header.css';
 
 class Header extends Component {
   handleExpenses = () => {
@@ -13,15 +12,8 @@ class Header extends Component {
 
   render() {
     const { email, totalExpenses } = this.props;
-    // const currentEmail = email === '' ? 'Local do email' : email;
-    // const balance = total === 0 ? 0 : Number(total).toFixed(2);
     return (
       <header>
-        {/* <p data-testid="email-field">{currentEmail}</p>
-        <div className="currentBalance">
-          <p data-testid="total-field" value={ total } />
-          <p data-testid="header-currency-field">BRL</p>
-        </div> */}
         <p data-testid="email-field">{email}</p>
 
         <p data-testid="total-field">

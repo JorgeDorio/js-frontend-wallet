@@ -1,5 +1,3 @@
-// Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-
 import { DELETE_EXPENSE,
   GET_WALLET_CURRENCIES,
   GET_WALLET_EXPENSES } from '../actions/actionTypes';

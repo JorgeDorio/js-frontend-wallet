@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteExpense } from '../actions';
 
+// Referência: Os requisitos 6,7 e 8 foram feitos com auxílio do colega de turma Abner Sousa, da turma 17, além de me ajudar com o conserto de bugs de alguns requesitos
+
 class Table extends React.Component {
   handleDelete = ({ target }) => {
     const { totalExpenses, getUpdateExpense } = this.props;

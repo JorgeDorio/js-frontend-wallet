@@ -7,7 +7,6 @@ import fetchApi from '../services/fetch';
 class ExpensesForm extends Component {
   constructor() {
     super();
-
     this.state = {
       value: 0,
       description: '',
@@ -37,13 +36,6 @@ class ExpensesForm extends Component {
       [name]: value,
     });
   }
-
-  // checkId = () => {
-  //   const { expenses } = this.props;
-  //   const currentId = expenses.currentId === undefined ? 0 : expenses.currentId + 1;
-  //   console.log(expenses);
-  //   return currentId;
-  // }
 
   handleClick = async (e) => {
     e.preventDefault();
@@ -95,14 +87,6 @@ class ExpensesForm extends Component {
               <option data-testid={ name } key={ name }>{name}</option>))}
           </select>
         </label>
-        {/* <input
-          onChange={ this.handleChange }
-          value={ currency }
-          placeholder="Moeada"
-          type="text"
-          data-testid="currency-input"
-          name="currency"
-        /> */}
         <select
           onChange={ this.handleChange }
           value={ method }
@@ -139,9 +123,5 @@ ExpensesForm.propTypes = {
 const mapDispatchToProps = (dispatch) => ({
   saveExpensesProps: (expenses) => dispatch(getExpenses(expenses)),
 });
-
-// const mapStateToProps = (state) => ({
-//   expenses: state.wallet.expenses,
-// });
 
 export default connect(null, mapDispatchToProps)(ExpensesForm);
