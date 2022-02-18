@@ -16,6 +16,7 @@ class ExpensesForm extends Component {
       tag: 'categoria',
       exchangeRates: [],
       nameCurrency: [],
+      id: 0,
     };
   }
 
@@ -52,9 +53,10 @@ class ExpensesForm extends Component {
       exchangeRates: requestExchange,
     }, () => {
       saveExpensesProps(this.state);
-      this.setState({
+      this.setState((prevState) => ({
+        id: prevState.id + 1,
         value: '',
-      });
+      }));
     });
   }
 

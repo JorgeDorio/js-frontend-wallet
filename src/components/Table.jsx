@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { deleteExpense } from '../actions';
+import { deleteExpense } from '../actions';
 
 class Table extends React.Component {
   handleDelete = ({ target }) => {
-    // console.log(typeof target.id);
     const { totalExpenses, getUpdateExpense } = this.props;
     const removeExpanse = totalExpenses
       .filter((expense) => expense.id !== Number(target.id));
@@ -71,8 +70,8 @@ Table.propTypes = {
   totalExpenses: PropTypes.arrayOf(PropTypes.object).isRequired,
 }.isRequired;
 
-// const mapDispatchToProps = (dispatch) => ({
-//   getUpdateExpense: (id) => dispatch(deleteExpense(id)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  getUpdateExpense: (id) => dispatch(deleteExpense(id)),
+});
 
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
